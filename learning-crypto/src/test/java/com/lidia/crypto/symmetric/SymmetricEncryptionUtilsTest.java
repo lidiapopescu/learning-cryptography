@@ -8,7 +8,6 @@ import javax.xml.bind.DatatypeConverter;
 
 import org.junit.jupiter.api.Test;
 
-import com.lidia.crypto.symmetric.SymmetricEncryptionUtils;
 
 class SymmetricEncryptionUtilsTest {
 	

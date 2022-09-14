@@ -29,6 +29,9 @@ public class SymmetricEncryptionUtils {
 		return initializationVector;
 	}
 	
+	/**
+	 * Basic AES encryption using a modern block cipher and a 256-bit key
+	 * */
 	public static byte[] performAESEncryption(String plaintText, SecretKey secretKey, byte[] initializationVector) throws Exception {
 		Cipher cipher = Cipher.getInstance(AES_CIPHER_ALGORITHM);
 		IvParameterSpec ivParameterSpec = new IvParameterSpec(initializationVector);
@@ -36,6 +39,9 @@ public class SymmetricEncryptionUtils {
 		return cipher.doFinal(plaintText.getBytes());
 	}
 	
+	/**
+	 * Basic AES decryption using a modern block cipher and a 256-bit key
+	 * */
 	public static String performAESDecryption(byte[] cipherText , SecretKey secretKey, byte[] initializationVector) throws Exception {
 		Cipher cipher = Cipher.getInstance(AES_CIPHER_ALGORITHM);
 		IvParameterSpec ivParameterSpec = new IvParameterSpec(initializationVector);
