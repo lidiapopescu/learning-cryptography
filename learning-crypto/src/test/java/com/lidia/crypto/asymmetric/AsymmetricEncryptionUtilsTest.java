@@ -1,4 +1,4 @@
-package com.lidia.crypto.symmetric;
+package com.lidia.crypto.asymmetric;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
