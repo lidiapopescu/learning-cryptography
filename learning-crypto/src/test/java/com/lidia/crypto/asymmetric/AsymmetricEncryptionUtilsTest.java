@@ -1,15 +1,13 @@
 package com.lidia.crypto.asymmetric;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.security.KeyPair;
 
 import javax.xml.bind.DatatypeConverter;
 
 import org.junit.jupiter.api.Test;
-
-import com.lidia.crypto.asymmetric.AsymmetricEncryptionUtils;
 
 public class AsymmetricEncryptionUtilsTest {
 

@@ -26,4 +26,12 @@ class HashUtilsTest {
 		byte[] hash2 =  HashUtils.createSHA2Hash(valueToHash, salt);
 		assertEquals(DatatypeConverter.printHexBinary(hash), DatatypeConverter.printHexBinary(hash2));
 	}
+	
+	@Test
+	void testPasswordRoutine() {
+		String secretPhrase = "correct horse battery staple";
+		String passwordHash = HashUtils.hashPassword(secretPhrase);
+		System.out.println(passwordHash);
+		assertTrue(HashUtils.verifyPassword(secretPhrase, passwordHash));
+	}
 }

@@ -4,6 +4,8 @@ import java.io.ByteArrayOutputStream;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class HashUtils {
 
 	private static final String SHA2_ALGORITHM = "SHA-256";
@@ -24,5 +26,18 @@ public class HashUtils {
 		
 		MessageDigest messageDigest = MessageDigest.getInstance(SHA2_ALGORITHM);
 		return messageDigest.digest(valueToHash);
+	}
+	
+	public static String hashPassword(String password) {
+//		BCrypt has already a password salt generator and in addition BCrypt stores the salt with the output string
+//		e.g. 
+//		The salt is:          $2a$10$iLwzRcIVC8lO19NLYmuE9O
+//		The encrypted string: $2a$10$iLwzRcIVC8lO19NLYmuE9OHqqFUz2dPZmY6O8sx1U1Yk73zsqV1vq
+//		The salt is actually embedded into the generated hash as well as the number of rounds that this actually took place.
+		return BCrypt.hashpw(password, BCrypt.gensalt());
+	}
+	
+	public static boolean verifyPassword(String password, String hashedPassword) {
+		return BCrypt.checkpw(password, hashedPassword);
 	}
  }
